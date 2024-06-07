@@ -1,0 +1,3 @@
+/Users/yosia/Binus/cmake-build-debug/CMakeFiles/Binus.dir
+/Users/yosia/Binus/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/yosia/Binus/cmake-build-debug/CMakeFiles/rebuild_cache.dir
