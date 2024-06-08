@@ -1,0 +1,3 @@
+/Users/yosia/Binus/TK1W2_reimagined-guacamole/CMakeFiles/TK1W2_reimagined-guacamole.dir
+/Users/yosia/Binus/TK1W2_reimagined-guacamole/CMakeFiles/edit_cache.dir
+/Users/yosia/Binus/TK1W2_reimagined-guacamole/CMakeFiles/rebuild_cache.dir
