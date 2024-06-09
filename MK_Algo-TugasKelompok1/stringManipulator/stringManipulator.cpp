@@ -1,63 +1,61 @@
 //
 // Created by Yosia on 08/06/24.
 //
-
+#include <iostream>
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <string>
+#include <algorithm>
 
-void reverseString(char *str) {
-    int length = strlen(str);
-    int start = 0;
-    int end = length - 1;
-
-    // Swap characters until start < end
-    while (start < end) {
-        char temp = str[start];
-        str[start] = str[end];
-        str[end] = temp;
-        start++;
-        end--;
-    }
-}
 
 int stringManipulator() {
-    char kalimat1[100], kalimat2[100], kalimat3[100], sentence[100];
+    //Deklarasi 3 variabel untuk menyimpan tiga kalimat yang akan diinput user
+    std::string kalimat1, kalimat2, kalimat3 ;
 
-    printf("Kalimat 1 = ");
-    fgets(kalimat1, sizeof(kalimat1), stdin);
-    kalimat1[strcspn(kalimat1, "\n")] = 0;
+    //User input 3 kalimat 
+    std::cout << "===Masukkan Kalimat===" << std::endl;
+    std::getline(std::cin,kalimat1);
+    std::cout << "Kalimat 1 = ";
+    std::getline(std::cin,kalimat1);
+    std::cout << "Kalimat 2 = ";
+    std::getline(std::cin,kalimat2);
+    std::cout << "Kalimat 3 = ";
+    std::getline(std::cin,kalimat3);
 
-    printf("Kalimat 2 = ");
-    fgets(kalimat2, sizeof(kalimat2), stdin);
-    kalimat2[strcspn(kalimat2, "\n")] = 0;
+    //Gabungan 3 kalimat
+    std::string gabungan = kalimat1 + " " + kalimat2 + " " + kalimat3;
 
-    printf("Kalimat 3 = ");
-    fgets(kalimat3, sizeof(kalimat3), stdin);
-    kalimat3[strcspn(kalimat3, "\n")] = 0;
+    //Reverse gabungan 3 kalimat
+    std::string gabungan_terbalik = gabungan;
+    std::reverse(gabungan_terbalik.begin(), gabungan_terbalik.end());
 
-    // Combining the strings into a single variable
-    sprintf(sentence, "%s %s %s", kalimat1, kalimat2, kalimat3);
+    //Function untuk menghitung jumlah huruf tanpa menghitung spasi
+    auto hitung_huruf_tanpa_spasi = [](const std::string& kalimat){
+        int jumlah_huruf = 0;
+        for (char c : kalimat){
+            if (c != ' ') {
+                jumlah_huruf++;
+            }
+        }
+        return jumlah_huruf;   
+    };
 
-    printf("Gabungan 3 buah inputan kalimat = %s \n", sentence);
+    //Menghitung jumlah huruf dalam dalam setiap kalimat tanpa menghitung spasi
+    int jumlah_huruf_kalimat1 = hitung_huruf_tanpa_spasi(kalimat1);
+    int jumlah_huruf_kalimat2 = hitung_huruf_tanpa_spasi(kalimat2);
+    int jumlah_huruf_kalimat3 = hitung_huruf_tanpa_spasi(kalimat3);
 
-    // Reverse each individual word
-    reverseString(kalimat1);
-    reverseString(kalimat2);
-    reverseString(kalimat3);
+    //Menghitung total jumlah huruf tanpa spasi dari ketiga kalimat
+    int total = jumlah_huruf_kalimat1 + jumlah_huruf_kalimat2 + jumlah_huruf_kalimat3;
 
-    // Combine reversed words
-    printf("Kalimat setelah dibalik = %s %s %s\n", kalimat3, kalimat2, kalimat1);
-
-    int jumlah1 = strlen(kalimat1);
-    int jumlah2 = strlen(kalimat2);
-    int jumlah3 = strlen(kalimat3);
-    int total = jumlah1 + jumlah2 + jumlah3;
-
-    printf("Jumlah Huruf kalimat Pertama = %d\n", jumlah1);
-    printf("Jumlah Huruf kalimat kedua = %d\n", jumlah2);
-    printf("Jumlah Huruf kalimat ketiga = %d\n", jumlah3);
-    printf("Total Jumlah huruf = %d\n", total);
+    //Hasil
+    std::cout << "Gabungan 3 buah inputan kalimat = " << gabungan << std::endl;
+    std::cout << "Hasil membalik kalimat gabungan = " << gabungan_terbalik << std::endl;
+    std::cout << "Jumlah Huruf kalimat pertama = " << jumlah_huruf_kalimat1 << std::endl;
+    std::cout << "Jumlah Huruf kalimat kedua = " << jumlah_huruf_kalimat2 << std::endl;
+    std::cout << "Jumlah Huruf kalimat ketiga = " << jumlah_huruf_kalimat3 << std::endl;
+    std::cout << "Total Jumlah huruf  = " << total << std::endl;
 
     return 0;
 }
