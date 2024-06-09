@@ -1,4 +1,4 @@
-![image](https://github.com/yosiawan/TK1W2_reimagined-guacamole/assets/41984454/a4370c35-82e5-4b66-a7f3-36f4c9b24c44)# TK1W2_reimagined-guacamole
+
 
 ## Prerequisite
 - install `cmake`
